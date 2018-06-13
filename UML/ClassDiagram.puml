@@ -1,5 +1,5 @@
 @startuml
-scale 1.4
+scale 1.1
 
 skinparam {
 backgroundColor white/#efe1ef
