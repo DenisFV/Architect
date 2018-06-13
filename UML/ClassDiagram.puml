@@ -16,9 +16,6 @@ classAttributeFontSize 14
 classAttributeFontName calibri
 }
 
-title <size:25>**Диаграмма классов**</size>\n
-
-
 hide class methods
 hide class circle
 
