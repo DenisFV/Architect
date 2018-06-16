@@ -34,9 +34,9 @@ usecase "Оплата картой" as (payCard)
 usecase "Получение патента" as (getP)
 usecase "Отказ от патента" as (endP)
 
-usecase "оповещение о непрохождении\n верификации" as (verif)
-usecase "Клиент выбирает пункт\n <<Получить патент>>" as (getPClick)
-usecase "Клиент выбирает пункт\n <<Отказ от патента>>" as (endPClick)
+usecase "Оповещение о непрохождении\n верификации" as (verif)
+usecase "<<Получить патент>>" as (getPClick)
+usecase "<<Отказ от патента>>" as (endPClick)
 
 
 

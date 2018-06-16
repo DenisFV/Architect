@@ -1,0 +1,54 @@
+@startuml
+
+scale 1.1
+left to right direction
+
+skinparam {
+backgroundColor #ede1ed/#efe1ef
+
+usecaseBackgroundColor #7ed67f/#a0e5a1
+usecasebordercolor black
+usecaseFontName calibri
+usecaseFontSize 14
+
+ActorBackgroundColor white
+ActorBordercolor #990434
+actorFontSize 16
+actorFontStyle bold
+
+arrowColor #A80036
+arrowFontSize 14
+
+noteBackgroundColor #efee92
+notebordercolor black
+}
+
+
+actor Менеджер as manag
+
+usecase "Прекращение работы\n с клиентом" as (stopWork)
+usecase "Прием заявки на\n получение патента" as (apply)
+
+usecase "Проверка\n паспортных данных" as (passport)
+usecase "Проверка\n кредитной истории" as (check)
+usecase "Сделать скидку" as (disc)
+note right : Если кредитная история\nбогатая
+usecase "Внесение в базу\n Клиента" as (addC)
+note right : Если Клиента\nеще нет в базе
+usecase "Пометка заявки как\n <<Новая>>" as (new)
+note right : Если заявка\nабсолютно новая
+usecase "Пометка заявки как\n <<Исправленная>>" as (upd)
+note right : Если заявка\nуже была создана
+
+
+manag -- apply
+manag -- stopWork
+
+passport <. apply  : <<include>>
+apply ..> check : <<include>>
+check <. disc : <<extend>>
+apply ..> addC : <<extend>>
+apply ..> new : <<extend>>
+apply ..> upd : <<extend>>
+
+@enduml
