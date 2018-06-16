@@ -1,0 +1,59 @@
+@startuml
+scale 1.1
+left to right direction
+
+skinparam {
+backgroundColor #ede1ed/#efe1ef
+
+usecaseBackgroundColor #7ed67f/#a0e5a1
+usecasebordercolor black
+usecaseFontName calibri
+usecaseFontSize 14
+
+ActorBackgroundColor white
+ActorBordercolor #990434
+actorFontSize 16
+actorFontStyle bold
+
+arrowColor #A80036
+arrowFontSize 14
+}
+
+
+actor Клиент as client
+
+
+usecase "Подать заявку на\n получение патента" as (apply)
+
+usecase "Ввод паспортных\n данных" as (passport)
+usecase "Оплата подачи\n заявки" as (payApply)
+usecase "Оплата наличными" as (payCash)
+usecase "Оплата картой" as (payCard)
+
+
+usecase "Получение патента" as (getP)
+usecase "Отказ от патента" as (endP)
+
+usecase "оповещение о непрохождении\n верификации" as (verif)
+usecase "Клиент выбирает пункт\n <<Получить патент>>" as (getPClick)
+usecase "Клиент выбирает пункт\n <<Отказ от патента>>" as (endPClick)
+
+
+
+client -- apply
+client -- getP
+client -- endP
+
+apply ..> passport : <<include>>
+apply ..> payApply : <<include>>
+
+payApply <|-- payCash
+payApply <|-- payCard
+
+getP ..> verif : <<include>>
+getP ..> getPClick : <<include>>
+
+endP ..> verif : <<include>>
+endP ..> endPClick : <<include>>
+
+@enduml
