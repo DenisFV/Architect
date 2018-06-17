@@ -23,20 +23,20 @@ arrowFontSize 14
 actor Клиент as client
 
 
-usecase "Подать заявку на\n получение патента" as (apply)
+usecase "Подать заявку на\n получение патента" as apply
 
-usecase "Ввод паспортных\n данных" as (passport)
-usecase "Оплата подачи\n заявки" as (payApply)
-usecase "Оплата наличными" as (payCash)
-usecase "Оплата картой" as (payCard)
+usecase "Ввод паспортных\n данных" as passport
+usecase "Оплата подачи\n заявки" as payApply
+usecase "Оплата наличными" as payCash
+usecase "Оплата картой" as payCard
 
 
-usecase "Получение патента" as (getP)
-usecase "Отказ от патента" as (endP)
+usecase "Получение патента" as getP
+usecase "Отказ от патента" as endP
 
-usecase "Оповещение о непрохождении\n верификации" as (verif)
-usecase "<<Получить патент>>" as (getPClick)
-usecase "<<Отказ от патента>>" as (endPClick)
+usecase "Оповещение о непрохождении\n верификации" as verif
+usecase "<<Получить патент>>" as getPClick
+usecase "<<Отказ от патента>>" as endPClick
 
 
 

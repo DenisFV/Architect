@@ -1,0 +1,45 @@
+@startuml
+
+scale 1.1
+left to right direction
+
+skinparam {
+backgroundColor #ede1ed/#efe1ef
+
+usecaseBackgroundColor #7ed67f/#a0e5a1
+usecasebordercolor black
+usecaseFontName calibri
+usecaseFontSize 14
+
+ActorBackgroundColor white
+ActorBordercolor #990434
+actorFontSize 16
+actorFontStyle bold
+
+arrowColor #A80036
+arrowFontSize 14
+
+noteBackgroundColor #efee92
+notebordercolor black
+}
+
+
+actor Верификатор as verifier
+
+usecase "Верификация\n изделия" as verif
+
+usecase "Аутентификация\n Верификатора" as login
+usecase "<<Верифицировать>>" as runverif
+usecase "<<Одобрить>>" as good
+usecase "<<Отказать>>" as bad
+
+
+verifier -- verif
+
+verif ..> runverif : <<include>>
+verif ..> login : <<include>>
+
+runverif <-- good
+runverif <-- bad
+
+@enduml
