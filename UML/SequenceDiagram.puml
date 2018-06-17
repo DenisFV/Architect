@@ -18,6 +18,8 @@ ParticipantFontColor black
 sequenceLifeLineBorderColor blue
 sequenceLifeLineBackgroundColor motivation
 
+sequenceGroupBackgroundColor #f75656
+
 arrowColor #A80036
 arrowFontSize 14
 
@@ -59,7 +61,7 @@ else Заявка - исправленная
 end
 
 create participant ":Платёжная Система" as pay order 5
-...В случае, если заявка - новая...
+...<size:13>В случае, если заявка - новая</size>...
 client -> pay : Оплатить
 activate pay
 
