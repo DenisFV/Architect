@@ -1,0 +1,81 @@
+@startuml
+scale 1.1
+
+skinparam {
+backgroundColor white\#EEEDDD
+
+ParticipantPadding 0
+
+ActorBackgroundColor white
+ActorBordercolor #990434
+actorFontSize 16
+actorFontStyle bold
+
+ParticipantBorderColor black
+ParticipantBackgroundColor burlywood
+ParticipantFontColor black
+
+sequenceLifeLineBorderColor blue
+sequenceLifeLineBackgroundColor motivation
+
+arrowColor #A80036
+arrowFontSize 14
+
+noteBackgroundColor #efee92
+notebordercolor black
+}
+
+
+actor "Клиент" as client order 1
+participant ":ИС Патентного Бюро" as system order 2
+
+client -> system : Подать заявку
+activate system
+    system -> system : Проверить паспортные данные
+    activate system
+    deactivate system
+
+alt Паспортные данные\n корректны
+    create participant ":Заявка Клиента" as application order 3
+    system -> application : Проверить заявку
+    system --> client : Подтверждение
+
+else Паспортные данные\n некорректны
+    system --> client : Отказ
+end
+
+alt Заявка - новая
+    system -> application : Пометить заявку как "Новая"
+    activate application
+    deactivate application
+    system --> client : Цена заявки
+else Заявка - исправленная
+    system -> application : Пометить заявку как\n"Исправленная"
+    activate application
+    deactivate application
+    create participant ":Журнал Верификации" as verifier order 4
+    system -> verifier : Переместить заявку в журнал
+    deactivate system
+end
+
+create participant ":Платёжная Система" as pay order 5
+...В случае, если заявка - новая...
+client -> pay : Оплатить
+activate pay
+
+alt Оплата прошла\n успешно
+    pay -> system : Подтвердить оплату
+    activate system
+    system --> client : Подтверждение
+    system -> verifier : Переместить заявку в журнал
+    deactivate system
+else Оплата не прошла
+     pay --> client : Отказ
+     note right of client
+         Предлагается
+         повторить оплату
+     end note
+     deactivate pay
+end
+
+@enduml
