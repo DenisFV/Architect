@@ -3,9 +3,8 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 
-public class ApplyForPatent {
+public class WriteToManager {
 
     @FXML
     private ResourceBundle resources;
@@ -14,19 +13,13 @@ public class ApplyForPatent {
     private URL location;
 
     @FXML
-    private Button backToPersonalArea_button;
-
-    @FXML
     private Button send_button;
 
     @FXML
-    private TextArea description_text;
+    private TextArea message_text;
 
     @FXML
-    private TextField type_text;
-
-    @FXML
-    private TextField link_text;
+    private Button backToPersonalArea_button;
 
     @FXML
     void initialize() {

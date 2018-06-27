@@ -29,6 +29,7 @@ public class GenerationLoginAndPassword {
 
     @FXML
     void initialize() {
+
         save_button.setOnAction(event -> {
             new Login().setLogin_text(login_text);
             new Login().setPassword_text(password_text);
@@ -50,6 +51,9 @@ public class GenerationLoginAndPassword {
             Stage stage = new Stage();
             stage.setTitle("Патентное бюро - вход в систему");
             stage.setScene(new Scene(root));
+            stage.setMaxWidth(569);
+            stage.setMaxHeight(430);
+            stage.setResizable(false);
             stage.show();
         });
     }

@@ -15,6 +15,9 @@ public class Run extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
         primaryStage.setTitle("Патентное бюро - вход в систему");
         primaryStage.setScene(new Scene(root));
+        primaryStage.setMaxWidth(569);
+        primaryStage.setMaxHeight(430);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 }
