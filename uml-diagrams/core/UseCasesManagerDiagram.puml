@@ -47,8 +47,8 @@ manag -- stopWork
 passport <. apply  : "<<include>>           "
 apply ..> check : <<include>>
 check <. disc : "                       <<extend>>"
-apply ..> addC : <<extend>>
-apply ..> new : <<extend>>
-apply ..> upd : <<extend>>
+apply ..> addC : <<include>>
+apply ..> new : <<include>>
+apply ..> upd : <<include>>
 
 @enduml

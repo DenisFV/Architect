@@ -29,7 +29,7 @@ notebordercolor black
 
 
 actor "Клиент" as client order 1
-participant ":ИС Патентного Бюро" as system order 2
+participant ":Патентного Бюро" as system order 2
 
 client -> system : Подать заявку
 activate system
