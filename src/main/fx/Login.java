@@ -63,7 +63,7 @@ public class Login {
             login_button.onMousePressedProperty().set(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    new HelpFunction().handleHelp(login_button, 5, 555, "Введите логин и пароль, или нажатие \"Подать заявку\"");
+                    new HelpFunction().handleHelp(login_button, 5, 555, "Введите логин и пароль, или зарегистрируйтесь");
                     login_button.setFont(new Font(21));
                 }
             });
